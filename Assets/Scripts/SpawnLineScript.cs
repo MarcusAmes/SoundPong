@@ -8,12 +8,14 @@ public class SpawnLineScript : MonoBehaviour
     private Vector2 touchPosInit;
     private GameObject spawnedLine;
     private int count = 0;
+    private bool isColored;
 
     // Start is called before the first frame update
     void Start()
     {
         touchPosInit = new Vector2();
         spawnedLine = new GameObject();
+        isColored = PlayerPrefs.GetInt("isColored", 0) == 1;
     }
 
 
@@ -62,6 +64,40 @@ public class SpawnLineScript : MonoBehaviour
                 var rotationVector = transform.rotation.eulerAngles;
                 rotationVector.z = angle;
                 spawnedLine.transform.rotation = Quaternion.Euler(rotationVector);
+
+                if(isColored)
+                {
+                    float length = c;
+                    if (c <= 1)
+                    {
+                        spawnedLine.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+                    }
+                    else if (length > 1 && length <= 2)
+                    {
+                        spawnedLine.GetComponentInChildren<SpriteRenderer>().color = new Color(255, 140, 0);
+                    }
+                    else if (length > 2 && length <= 3)
+                    {
+                        spawnedLine.GetComponentInChildren<SpriteRenderer>().color = new Color(255, 255, 0);
+                    }
+                    else if (length > 3 && length <= 4)
+                    {
+                        spawnedLine.GetComponentInChildren<SpriteRenderer>().color = Color.green;
+                    }
+                    else if (length > 4 && length <= 5)
+                    {
+                        spawnedLine.GetComponentInChildren<SpriteRenderer>().color = Color.blue;
+                    }
+                    else if (length > 5 && length <= 6)
+                    {
+                        spawnedLine.GetComponentInChildren<SpriteRenderer>().color = new Color(255, 0, 255);
+                    }
+                    else if (length > 6)
+                    {
+                        spawnedLine.GetComponentInChildren<SpriteRenderer>().color = new Color(75, 0, 130);
+                    }
+                    
+                }
             }
             if (touch.phase == TouchPhase.Ended)
             {
