@@ -74,11 +74,11 @@ public class SpawnLineScript : MonoBehaviour
                     }
                     else if (length > 1 && length <= 2)
                     {
-                        spawnedLine.GetComponentInChildren<SpriteRenderer>().color = new Color(255, 140, 0);
+                        spawnedLine.GetComponentInChildren<SpriteRenderer>().color = new Color(1.0f, .64f, 0f);
                     }
                     else if (length > 2 && length <= 3)
                     {
-                        spawnedLine.GetComponentInChildren<SpriteRenderer>().color = new Color(255, 255, 0);
+                        spawnedLine.GetComponentInChildren<SpriteRenderer>().color = Color.yellow;
                     }
                     else if (length > 3 && length <= 4)
                     {
@@ -90,11 +90,11 @@ public class SpawnLineScript : MonoBehaviour
                     }
                     else if (length > 5 && length <= 6)
                     {
-                        spawnedLine.GetComponentInChildren<SpriteRenderer>().color = new Color(255, 0, 255);
+                        spawnedLine.GetComponentInChildren<SpriteRenderer>().color = Color.magenta;
                     }
                     else if (length > 6)
                     {
-                        spawnedLine.GetComponentInChildren<SpriteRenderer>().color = new Color(75, 0, 130);
+                        spawnedLine.GetComponentInChildren<SpriteRenderer>().color = new Color(0.3f, 0, 0.51f);
                     }
                     
                 }
