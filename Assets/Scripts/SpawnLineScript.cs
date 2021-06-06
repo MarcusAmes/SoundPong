@@ -42,7 +42,7 @@ public class SpawnLineScript : MonoBehaviour
                 float b = touchPos.x - touchPosInit.x;
                 float c = Mathf.Sqrt((a * a) + (b * b));
                 //totally wonky
-                spawnedLine.transform.localScale = new Vector3(c, .15f , 1);
+                spawnedLine.transform.localScale = new Vector3(c, .05f , 1);
 
 
 

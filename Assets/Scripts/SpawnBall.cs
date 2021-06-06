@@ -6,26 +6,17 @@ public class SpawnBall : MonoBehaviour
 {
     public Rigidbody2D ball;
     public float frequency;
-    public float count = 0;
+    public float elaspedTime = 0.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (count == frequency)
+        elaspedTime += Time.deltaTime;
+        if (elaspedTime > frequency)
         {
-            Rigidbody2D clone;
-            clone = Instantiate(ball, transform.position, transform.rotation);
-            clone.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            count = 0;
-        } else
-        {
-            count++;
+            elaspedTime = 0;
+            Rigidbody2D clone = Instantiate(ball, transform.position, transform.rotation);
         }
     }
 }
